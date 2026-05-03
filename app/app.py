@@ -7,7 +7,7 @@ app = Flask(__name__)
 def home():
     return """
     🚀 CI/CD ile deploy edildi!
-    Versiyon: 2.0.2
+    Versiyon: 1.0.1
     """
 
 

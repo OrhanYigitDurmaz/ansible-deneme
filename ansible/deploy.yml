@@ -11,8 +11,11 @@
         enabled: true
 
     - name: Remove old container
-      command: docker rm -f myapp
+      command: docker rm -f ansible-deneme
       ignore_errors: true
 
+    - name: Pull latest image
+      shell: docker pull {{ docker_image }}
+
     - name: Run new container
-      command: docker run -d -p 80:5000 --name myapp {{ docker_image }}
+      command: docker run -d -p 80:5000 --name ansible-deneme {{ docker_image }}

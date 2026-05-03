@@ -13,7 +13,7 @@ Go to your repository **Settings → Secrets and variables → Actions** and add
 | `DOCKER_USER` | Your Docker Hub username               |
 | `DOCKER_PASS` | Your Docker Hub password or token      |
 | `SSH_KEY`     | Private SSH key for the target server  |
-| `DOCKER_IMAGE`| Full Docker image name (e.g. `youruser/myapp`) |
+| `DOCKER_IMAGE`| Full Docker image name (e.g. `youruser/`) |
 
 ### 2. Update inventory.ini
 
