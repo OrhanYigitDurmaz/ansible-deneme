@@ -16,7 +16,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -38,4 +38,4 @@ jobs:
       - name: Run Ansible playbook
         run: |
           ansible-playbook -i ansible/inventory.ini ansible/deploy.yml \
-            --extra-vars "docker_image=${{ secrets.DOCKER_IMAGE }}:latest"
+            --extra-vars "docker_image=${{ secrets.DOCKER_IMAGE }}"
