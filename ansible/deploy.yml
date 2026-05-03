@@ -1,0 +1,25 @@
+---
+- name: Deploy Flask app with Docker
+  hosts: web
+  become: true
+  vars:
+    docker_image: "{{ docker_image }}"
+  tasks:
+    - name: Install docker.io
+      apt:
+        name: docker.io
+        state: present
+        update_cache: true
+
+    - name: Start and enable Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Remove old container
+      command: docker rm -f myapp
+      ignore_errors: true
+
+    - name: Run new container
+      command: docker run -d -p 80:5000 --name myapp {{ docker_image }}
