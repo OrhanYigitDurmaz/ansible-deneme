@@ -1,7 +1,6 @@
 ---
 - name: Deploy Flask app with Docker
   hosts: web
-  become: true
   vars:
     docker_image: "{{ docker_image }}"
   tasks:
